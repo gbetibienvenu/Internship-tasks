@@ -113,3 +113,88 @@ The `Book` entity represents a book in the library system. Below are the fields 
 
 # Conclusion
 This README file provides a comprehensive guide to the Library Management System project, detailing the essential fields used in the book entity and a list of key Git and GitHub commands. This structure is aimed at helping users understand both the application functionality and the version control processes involved in managing the project.
+
+
+
+
+  # THIS IS WEEK 5 TASK UPDATED BELOW
+
+# 📚  Library Management System
+This project is a Library Management System built with Spring Boot. It leverages Flyway to manage database versioning and migrations, ensuring smooth schema changes and consistent setup across multiple environments.
+
+# 🗂️ Project Structure
+plaintext
+Copy code
+src  
+└── main  
+    └── resources  
+        └── db  
+            └── migration  
+                ├── v1_create_books_table.sql  
+                └── v2_add_sample_data.sql  
+# ⚙️ Flyway Configuration
+The following Flyway settings are added to application.properties to enable and control database migrations:
+
+# properties
+Copy code
+spring.flyway.enabled=true  
+spring.flyway.baseline-on-migrate=true  
+spring.flyway.locations=classpath:db/migration  
+Configuration Details:
+Command: spring.flyway.enabled=true
+Description: Activates Flyway on application startup.
+
+Command: spring.flyway.baseline-on-migrate=true
+Description: Ensures migrations run even if the schema isn't empty.
+
+Command: spring.flyway.locations=classpath:db/migration
+Description: Specifies the location of migration scripts.
+
+# 📝 Database Migration Scripts
+The db/migration folder contains the following SQL migration scripts:
+
+1. v1_create_books_table.sql
+Description: Creates the books table to store information about books in the library.
+
+2. v2_add_sample_data.sql
+Description: Inserts initial sample data into the books table for testing and demonstration.
+
+# 🚀 How to Run the Application
+Follow these steps to run the Library Management System:
+
+1. Clone the Repository:
+bash
+Copy code
+git clone <your-repository-url>  
+cd <your-project-directory>  
+2. Ensure Dependencies are Installed:
+Java 17  or higher
+Maven
+3. Configure the Database:
+Update the application.properties file with your database connection settings, if necessary.
+4. Run the Application:
+bash
+Copy code
+mvn spring-boot:run  
+5. Flyway Migration:
+Command: Flyway
+Description: Flyway will automatically apply all migration scripts from the db/migration folder during startup.
+
+# ✨ Features
+Manage Books: Add, update, and delete book records.
+Database Versioning: Flyway ensures consistent schema management across multiple environments.
+Pre-loaded Data: The application includes sample data for quick testing and demonstration.
+# 📖 Conclusion
+This Library Management System offers a reliable starting point for managing book records. With Flyway seamlessly handling schema changes, developers can focus on extending the system’s features without worrying about database inconsistencies.
+
+
+
+
+
+
+
+
+
+
+
+
