@@ -67,6 +67,47 @@
 			</exclusions>
 		</dependency>
 
+
+<!--		<dependency>-->
+<!--			<groupId>javax.servlet</groupId>-->
+<!--			<artifactId>javax.servlet-api</artifactId>-->
+<!--			<version>4.0.1</version> &lt;!&ndash; Or the appropriate version you're using &ndash;&gt;-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+
+		<!-- Jakarta Servlet API for HTTP Request -->
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>5.0.0</version> <!-- Use the appropriate version -->
+			<scope>provided</scope>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+			<version>2.2</version> <!-- Or the appropriate version you are using -->
+		</dependency>
+
+
+
+
+		<!-- HATEOAS -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>
+		<!-- Swagger OpenAPI -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.5.12</version>
+		</dependency>
+
+
+
 		<!-- 6. Mockito Core (Latest Version) -->
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -85,6 +126,12 @@
 
 
 	</dependencies>
+
+<!--	<parent>-->
+<!--		<groupId>org.springframework.boot</groupId>-->
+<!--		<artifactId>spring-boot-starter-parent</artifactId>-->
+<!--		<version>3.3.2</version> &lt;!&ndash; Make sure you're using Spring Boot 3.x &ndash;&gt;-->
+<!--	</parent>-->
 
 	<build>
 		<plugins>

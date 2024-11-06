@@ -34,7 +34,8 @@ public class ProductControllerTest {
     @Test
     public void testGetAllProducts() throws Exception {
         mockMvc.perform(get("/api/products"))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").isArray()); // Ensure it returns an array of products
     }
 
     @Test
@@ -45,7 +46,10 @@ public class ProductControllerTest {
         mockMvc.perform(post("/api/products")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"name\":\"Laptop\",\"price\":1500,\"category\":\"Electronics\"}"))
-                .andExpect(status().isCreated());
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.name").value("Laptop"))
+                .andExpect(jsonPath("$.price").value(1500))
+                .andExpect(jsonPath("$.category").value("Electronics"));
     }
 
     @Test
@@ -55,7 +59,9 @@ public class ProductControllerTest {
 
         mockMvc.perform(get("/api/products/1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("Laptop"));
+                .andExpect(jsonPath("$.name").value("Laptop"))
+                .andExpect(jsonPath("$.price").value(1500))
+                .andExpect(jsonPath("$.category").value("Electronics"));
     }
 
     @Test
