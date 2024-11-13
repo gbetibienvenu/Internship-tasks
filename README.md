@@ -184,6 +184,108 @@ Description: Flyway will automatically apply all migration scripts from the db/m
 Manage Books: Add, update, and delete book records.
 Database Versioning: Flyway ensures consistent schema management across multiple environments.
 Pre-loaded Data: The application includes sample data for quick testing and demonstration.
+
+## Testing 
+# This are the  outlines,for  the testing  of the existing  LibrarySystem application.  It  focuses  specifically on the BookController and BookService components.
+
+## Table of Contents
+# Introduction
+# Testing Structure
+# Dependencies
+# Annotations and Setup
+# Test Overview
+# Running the Tests
+# Introduction
+
+
+BookController Integration Tests: Tests the BookController endpoints using mock services, ensuring correct API responses.
+BookService Unit Tests: Tests the logic of BookService, ensuring correct behavior with a mocked repository.
+The goal is to ensure all parts of the book management functionality work as expected, including listing, retrieving, adding, and deleting books.
+
+Testing Structure
+The test files are organized as follows:
+
+
+
+src
+└── test
+    └── java
+        └── com
+            └── example
+                └── LibrarySystem
+                    ├── controller
+                    │   └── BookControllerTest.java
+                    ├── service
+                    │   └── BookServiceTest.java
+
+# 1. BookControllerTest (Integration Test)
+The BookControllerTest class, located in controller/BookControllerTest.java, tests the controller layer. Using MockMvc and MockBean, this test suite ensures the BookController methods correctly handle HTTP requests.
+
+# 2. BookServiceTest (Unit Test)
+The BookServiceTest class, located in service/BookServiceTest.java, tests the business logic in BookService. It mocks the BookRepository to isolate and validate the service’s behavior independently of the data access layer.
+
+# Dependencies
+You can run these tests, include the following dependencies in your pom.xml:
+
+
+<dependencies>
+    <!-- Spring Boot Starter Test -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- Mockito Core -->
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- Mockito JUnit Jupiter -->
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-junit-jupiter</artifactId>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+
+# https://central.sonatype.com/artifact/org.mockito/mockito-core?smo=true
+# https://mvnrepository.com/artifact/org.mockito/mockito-core
+
+Annotations and Setup
+Each test class uses specific annotations to configure the test environment:
+
+@WebMvcTest: It used in BookControllerTest to set up a Spring MVC context, isolating controller behavior.
+@MockBean: It creates a mock instance of BookService in the BookControllerTest, replacing the actual service implementation.
+@Mock and @InjectMocks: Used in BookServiceTest to inject mock dependencies into the BookService.
+@BeforeEach: Sets up mock data before each test to ensure consistent test conditions.
+Test Overview
+BookControllerTest (Integration Tests)
+The BookControllerTest class tests the API endpoints in BookController using MockMvc for HTTP request simulation:
+
+getAllBooks: Tests the GET /api/books endpoint, checking that it returns the correct JSON response for a list of books.
+getBookById: Tests retrieving a book by ID using GET /api/books/{id}, ensuring the correct book data is returned.
+addBook: Verifies that POST /api/books correctly adds a new book and returns the expected data in the response.
+deleteBook: Confirms that DELETE /api/books/{id} works as expected and returns the appropriate status code.
+BookServiceTest (Unit Tests)
+The BookServiceTest class tests the business logic in BookService:
+
+getAllBooks: Ensures that the findAll method of the BookRepository is called and returns a list of books.
+getBookById: Tests fetching a book by ID, verifying correct book data is returned and handling the case where the book is not found.
+addBook: Verifies that a new book can be saved to the repository successfully.
+deleteBook: Confirms deletion of an existing book and verifies the correct behavior when attempting to delete a non-existing book.
+Running the Tests
+To execute the tests, you can use the following commands:
+
+# Run all tests
+mvn test
+
+# Run specific test classes
+mvn -Dtest=BookControllerTest test
+mvn -Dtest=BookServiceTest test
+
 # 📖 Conclusion
 This Library Management System offers a reliable starting point for managing book records. With Flyway seamlessly handling schema changes, developers can focus on extending the system’s features without worrying about database inconsistencies.
 
