@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/user.css}" />
+    <script th:src="@{/js/user.js}" defer></script>
+    <script th:src="@{/static/js/script.js}"></script>
+
 </head>
 <body>
-
+<header>
+    <h1>User Dashboard</h1>
+</header>
+<main>
+    <p>Welcome to your dashboard!</p>
+    <img th:src="@{/images/user-dashboard.png}" alt="User Dashboard" />
+</main>
+<footer>
+    <p>&copy; 2024 Your Company</p>
+</footer>
 </body>
 </html>

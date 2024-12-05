@@ -1,47 +1,98 @@
 package com.example.ambulanceserviceprovider.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.management.relation.Role;
-import java.security.Timestamp;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 100)
-    private String name;
-
-    @Column(nullable = false, unique = true, length = 150)
-    private String email;
-
-    @Column(nullable = false)
-    private String password;
+    private String username;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
 
-    @Column(length = 15)
-    private String phoneNumber;
+    @Column(nullable = false, length = 100)
+    private String name;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private Timestamp createdAt;
+    @Column(unique = true, nullable = false)
+    private String email;
 
-    public void setName(String johnDoe) {
+    @Column(nullable = false, length = 100)
+    private String password;
+
+    // Constructors, getters, setters, etc.
+    public User() {
     }
-
-    public void setEmail(String mail) {
-    }
-
-    public void setPassword(String password) {
-    }
-
-    public void setRole(String user) {
-    }
-
-    // Getters and Setters
 }
+
+
+
+
+
+
+
+
+
+
+
+//package com.example.ambulanceserviceprovider.model;
+//
+//import jakarta.persistence.*;
+//import lombok.Getter;
+//import lombok.Setter;
+//
+//@Getter
+//@Setter
+//@Entity
+//public class User {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
+//
+//    @Column(nullable = false, length = 100)
+//    private String username;
+//
+//    @Enumerated(EnumType.STRING)
+//    @Column(nullable = false)
+//    private Role role;
+//
+//    // Getters and setters
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    private String name;
+//
+//    @Column(unique = true, nullable = false)
+//    private String email;
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getUsername() {
+//        return username;
+//    }
+//
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
+//
+//    public Role getRole() {
+//        return role;
+//    }
+//
+//    public void setRole(Role role) {
+//        this.role = role;
+//    }
+//}

@@ -1,0 +1,55 @@
+/* admin.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light gray for background */
+    color: #333;
+}
+header {
+    background-color: #e63946; /* Emergency Red */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+footer {
+    background-color: #e63946;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+main {
+    padding: 20px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+table th {
+    background-color: #e63946;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header, footer {
+        padding: 15px;
+        font-size: 18px;
+    }
+    table {
+        font-size: 14px;
+    }
+    main {
+        padding: 10px;
+    }
+}

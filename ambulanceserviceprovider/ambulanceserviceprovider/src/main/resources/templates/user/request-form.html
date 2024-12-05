@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Request Form</title>
+    <link rel="stylesheet" th:href="@{/css/user.css}" />
+    <script th:src="@{/js/user.js}" defer></script>
+    <script th:src="@{/static/js/script.js}"></script>
+
 </head>
 <body>
+<header>
+    <h1>Request Form</h1>
+</header>
+<main>
+    <form th:action="@{/user/request}" method="post">
+        <label for="request">Your Request:</label>
+        <textarea id="request" name="request" required></textarea>
 
+        <button type="submit">Submit Request</button>
+    </form>
+    <img th:src="@{/images/request-form.png}" alt="Request Form" />
+</main>
+<footer>
+    <p>&copy; 2024 Your Company</p>
+</footer>
 </body>
 </html>
