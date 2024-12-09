@@ -46,7 +46,6 @@ public class WebSecurityConfig {
         );
     }
 
-    @Bean
     public void configureAuthentication(AuthenticationManagerBuilder auth, UserDetailsService userDetailsService) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }

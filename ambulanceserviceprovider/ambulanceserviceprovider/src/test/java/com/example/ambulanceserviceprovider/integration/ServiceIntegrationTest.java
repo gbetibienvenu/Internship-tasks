@@ -23,7 +23,7 @@ public class UserServiceIntegrationTest {
     private UserRepository userRepository;
 
     @Test
-    public void testUser  Registration() {
+    public void Registration() {
         User user = new User();
         user.setName("John Doe");
         user.setEmail("john.doe@example.com");

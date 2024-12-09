@@ -3,7 +3,9 @@ package com.example.ambulanceserviceprovider.controller;
 import com.example.ambulanceserviceprovider.dto.RequestDto;
 import com.example.ambulanceserviceprovider.model.Request;
 import com.example.ambulanceserviceprovider.model.RequestStatus;
+import com.example.ambulanceserviceprovider.service.AmbulanceService;
 import com.example.ambulanceserviceprovider.service.RequestService;
+import com.example.ambulanceserviceprovider.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,12 @@ public class RequestController {
 
     @Autowired
     private RequestService requestService;
+
+    @Autowired
+    private AmbulanceService ambulanceService;
+
+    @Autowired
+    private UserService userService;
 
     @PostMapping
     public ResponseEntity<Request> createRequest(@RequestBody RequestDto requestDto) {

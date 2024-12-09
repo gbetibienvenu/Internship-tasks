@@ -33,7 +33,7 @@ public class AmbulanceController {
     @GetMapping("/{id}")
     public Ambulance getAmbulanceById(@PathVariable Long id) {
         Ambulance ambulance = ambulanceService.getAmbulanceById(id);
-        return ResponseEntity.ok(ambulance);
+        return ResponseEntity.ok(ambulance).getBody();
     }
 
     // Update an existing ambulance

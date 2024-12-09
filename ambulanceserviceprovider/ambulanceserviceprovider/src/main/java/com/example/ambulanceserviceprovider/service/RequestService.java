@@ -15,6 +15,8 @@ public class RequestService {
     @Autowired
     private UserService userService; // Service to fetch User objects
 
+    @Autowired
+    private AmbulanceService ambulanceService;
 
     /**
      * Create a new request.
